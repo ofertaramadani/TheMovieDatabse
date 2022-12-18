@@ -71,11 +71,20 @@ export default {
   margin:auto;
   align-items: center;
 }
-.card-image,.card-content {
-  width: 50%;
-}
+
 .card-image {
   padding-left:7px;
   padding-top:7px;
 }
+@media (max-width:767px){
+  .card {
+    width: 100%;
+    flex-direction:column;
+  }
+  .card-image {
+    padding-right:7px;
+  }
+  
+}
+
 </style>

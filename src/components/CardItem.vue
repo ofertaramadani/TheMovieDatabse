@@ -2,7 +2,7 @@
   <div class="card">
   <router-link :to="'/single-movie/'+ cardID" >
   <div class="card-image">
-    <figure class="image ">
+    <figure class="image">
       <img :src="cardImage" :alt="cardTitle">
     </figure>
   </div>

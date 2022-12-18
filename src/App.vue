@@ -8,8 +8,10 @@
 </template>
 
 <style>
+
 html {
   scroll-behavior: smooth;
+  background-color: #2C2F33;
 }
 h4 {
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;

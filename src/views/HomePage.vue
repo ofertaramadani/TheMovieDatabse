@@ -133,7 +133,7 @@ export default {
   }
   .card-list {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     gap: 30px;
     padding-top: 60px;
     padding-bottom: 60px;
@@ -143,5 +143,25 @@ export default {
   }
   img {
     object-fit:  cover !important;
+  }
+
+  @media (max-width:767px) {
+    .filters {
+      flex-direction: column;
+    }
+    .card-list {
+      grid-template-columns: 1fr;
+    }
+    label{
+    margin-right:0px;
+  }
+  .input {
+    margin-right: 0px;
+  }
+  .button {
+    margin-left:0px;
+    margin-top:10px;
+  }
+
   }
 </style>

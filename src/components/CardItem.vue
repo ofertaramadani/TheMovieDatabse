@@ -8,15 +8,9 @@
   </div>
   <div class="card-content">
     <div class="media">
-      <div class="media-content">
-        <p maxlength="50" class="title is-4">{{cardTitle}}</p>
+      <div class="media-content media-title">
+        <p class="title is-6">{{cardTitle}}</p>
       </div>
-    </div>
-    <div class="content">
-      <div>Release date : {{cardDate}}</div>
-    </div>
-    <div class="content">
-      <div>Rate : {{cardRate}}</div>
     </div>
   </div>
 </router-link>
@@ -40,11 +34,24 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.media-title {
+  background-color: transparent;
+}
+.card-content {
+  padding: 10px;
+}
 .card {
   border-radius: 10px;
 }
-.card:hover .image {
-  border: 1px solid white;
+.media-content {
+  text-align: center;
+}
+.card:hover .card-content{
+  background-color: #2C2F33;
+
+}
+.card:hover p {
+  color: white;
 }
 
 

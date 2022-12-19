@@ -53,7 +53,10 @@ export default {
   methods : {
     onChange(event) {
               var optionValue = event.target.value;
+              var optionText = event.target.options[event.target.options.selectedIndex].text;
               this.genre=optionValue;
+              this.genreName=optionText;
+
           },
     fetchMovies() {
       fetch('https://api.themoviedb.org/3/discover/movie?api_key=54106cb9e32f32a2f6c166158a3062d4&with_genres='+this.genre+'&vote_average.gte='+this.rate+'&vote_average.lte='+this.rate+'&primary_release_year='+this.input)
@@ -87,6 +90,7 @@ export default {
   label{
     margin-right:10px;
     color: white;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
   .input {
     width:200px;
@@ -101,6 +105,9 @@ export default {
   }
   .button {
     margin-left: 20px;
+    background-color: #2C2F33;
+    color: white;
+    border:1px solid #17a2b8;
   }
   img {
     object-fit:  cover !important;

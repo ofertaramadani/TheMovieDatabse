@@ -2,11 +2,11 @@
   <div id="app">
     <div class="container">
       <div class="filters">
-      <label for="year">Year:</label>
-      <input class="input" text="input" id="year" v-model="input" placeholder="Select year">
-      <label for="rate">Rate:</label>
-      <input class="input" text="input" id="rate" v-model="rate" placeholder="Select rate">
-      <label for="genre">Genre:</label>
+      <label for="year">Year </label>
+      <input class="input" text="input" id="year" v-model="input" placeholder="Select year...">
+      <label for="rate">Rate </label>
+      <input class="input" text="input" id="rate" v-model="rate" placeholder="Select rate...">
+      <label for="genre">Genre </label>
       <div class="select is-primary" id="genre">
       <Select v-model="genre" id="genre"  @change="onChange($event)">
         <option>Select genre</option>
@@ -93,6 +93,7 @@ export default {
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
   .input {
+    border:2px solid #17a2b8;
     width:200px;
     margin-right:20px;
   }
@@ -112,6 +113,10 @@ export default {
   img {
     object-fit:  cover !important;
   }
+  .button:hover{
+    background-color: #17a2b8;
+    color: white;
+  }
 
   @media (max-width:767px) {
     .filters {
@@ -130,6 +135,7 @@ export default {
     margin-left:0px;
     margin-top:10px;
   }
+
   }
   @media (min-width:768px) and (max-width:1024px){
       .card-list {

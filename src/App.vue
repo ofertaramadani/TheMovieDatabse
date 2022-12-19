@@ -34,10 +34,7 @@
   background-color: #17a2b8;
   color: white;
 }
-.nav-bar__link:visited {
-  background-color: #17a2b8;
-  color: white;
-}
+
 html {
   scroll-behavior: smooth;
   background-color: #2C2F33;

@@ -61,10 +61,7 @@ export default {
 .space {
   margin-bottom:6%;
 }
-.fullcard {
-  height: 100vh;
-  background-color: #2C2F33;
-}
+
 .card {
   display: flex;
   width: 70%;
@@ -85,6 +82,16 @@ export default {
     padding-right:7px;
   }
   
+}
+
+@media (min-width:768px) and (max-width:1024px){
+  .card {
+    width: 90%;
+    flex-direction:column;
+  }
+  .card-image {
+    padding-right:7px;
+  }
 }
 
 </style>

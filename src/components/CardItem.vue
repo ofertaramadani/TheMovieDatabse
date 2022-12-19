@@ -2,7 +2,7 @@
   <div class="card">
   <router-link :to="'/single-movie/'+ cardID" >
   <div class="card-image">
-    <figure class="image is-3by4">
+    <figure class="image is-2by4">
       <img :src="cardImage" :alt="cardTitle">
     </figure>
   </div>
@@ -46,9 +46,8 @@ export default {
 .media-content {
   text-align: center;
 }
-.card:hover .card-content{
+.card:hover{
   background-color: #2C2F33;
-
 }
 .card:hover p {
   color: white;

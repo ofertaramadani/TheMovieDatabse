@@ -23,7 +23,6 @@
           :cardContent="news.overview" 
           :cardDate="news.release_date"
           :cardRate="news.vote_average"
-          :cardGenre="genreName"
         >
         </CardItem>
       </div>
@@ -46,17 +45,13 @@ export default {
       input:"",
       rate:"",
       genre:" ",
-      genreName:" ",
       genreList:[]
     }
   },
   methods : {
     onChange(event) {
               var optionValue = event.target.value;
-              var optionText = event.target.options[event.target.options.selectedIndex].text;
               this.genre=optionValue;
-              this.genreName=optionText;
-
           },
     fetchMovies() {
       fetch('https://api.themoviedb.org/3/discover/movie?api_key=54106cb9e32f32a2f6c166158a3062d4&with_genres='+this.genre+'&vote_average.gte='+this.rate+'&vote_average.lte='+this.rate+'&primary_release_year='+this.input)

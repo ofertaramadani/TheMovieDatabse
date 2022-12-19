@@ -3,38 +3,35 @@
       <div class="container">
         <div class="card-list">
             <!--Faqja me 20 filma-->
-          <CardItem v-for="news in movieList[0].results" :key="news.id"
+          <CardItem v-for="movie in movieList[0].results" :key="movie.id"
+            :cardID="movie.id"
+            :cardTitle="movie.title"
+            :cardImage="'https://image.tmdb.org/t/p/original'+movie.poster_path"
+            :cardContent="movie.overview" 
+            :cardDate="movie.release_date"
+            :cardRate="movie.vote_average"
+          >
+          </CardItem>
+          <!-- Faqja me 20 filma-->
+           <CardItem v-for="news in movieList[1].results" :key="news.id"
             :cardID="news.id"
             :cardTitle="news.title"
             :cardImage="'https://image.tmdb.org/t/p/original'+news.poster_path"
             :cardContent="news.overview" 
             :cardDate="news.release_date"
             :cardRate="news.vote_average"
-            :cardGenre="genreName"
           >
           </CardItem>
-          <!--Faqja me 20 filma-->
-          <CardItem v-for="news in movieList[1].results" :key="news.id"
+        
+           <CardItem v-for="news in movieList[2]" :key="news.id"
             :cardID="news.id"
             :cardTitle="news.title"
             :cardImage="'https://image.tmdb.org/t/p/original'+news.poster_path"
             :cardContent="news.overview" 
             :cardDate="news.release_date"
             :cardRate="news.vote_average"
-            :cardGenre="genreName"
           >
-          </CardItem>
-          <!--Faqja me 10 filma..... totali 50-->
-          <CardItem v-for="news in movieList[2]" :key="news.id"
-            :cardID="news.id"
-            :cardTitle="news.title"
-            :cardImage="'https://image.tmdb.org/t/p/original'+news.poster_path"
-            :cardContent="news.overview" 
-            :cardDate="news.release_date"
-            :cardRate="news.vote_average"
-            :cardGenre="genreName"
-          >
-          </CardItem>
+          </CardItem> 
         </div>
       </div>
     </div>
@@ -54,7 +51,7 @@
         firstpage: {},
         secondpage: {},
         thirdpage: {},
-        movieList: {}
+        movieList: {},
       }
     },
     methods : {
@@ -63,6 +60,7 @@
         .then(response => response.json())
         .then(data => {
           this.firstpage = data;
+          console.log("h"+this.firstpage);
         })
       },
       fetchMovies_second20() {

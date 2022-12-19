@@ -12,7 +12,12 @@
         <p class="subtitle is-6">Release date : {{movieData}}</p>
         <p class="subtitle is-6">Language : {{movieLan}}</p>
         <p class="subtitle is-6">IMBD rate : {{movieRate}}</p>
+        <div class="genres">
+        <p>Genres : </p>
+        <p v-for="genre in movieGenres" :key="genre.id">{{ genre.name }}</p>
       </div>
+      </div>
+     
     </div>
     <div class="content">
       Plot : {{movieContent}}
@@ -32,7 +37,8 @@ export default {
       movieContent:" ",
       movieData : " ",
       movieRate : " ",
-      movieLan : " "
+      movieLan : " ",
+      movieGenres: [],
     }
   },
   methods: {
@@ -40,14 +46,13 @@ export default {
       fetch('https://api.themoviedb.org/3/movie/'+movieID+'?api_key=54106cb9e32f32a2f6c166158a3062d4&language=en-US')
       .then(response => response.json())
       .then(data => {
-        console.log(data);
         this.moviePoster = data.poster_path;
         this.movieTitle = data.title;
         this.movieContent= data.overview;
         this.movieData = data.release_date;
         this.movieRate = data.vote_average;
         this.movieLan=data.original_language;
-
+        this.movieGenres=data.genres;
       })
     }
   },
@@ -58,6 +63,11 @@ export default {
 </script>
 
 <style scoped>
+.genres {
+  display: flex;
+  gap: 1%;
+  flex-wrap: wrap;
+}
 .space {
   margin-bottom:6%;
 }

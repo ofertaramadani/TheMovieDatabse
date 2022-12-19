@@ -8,24 +8,11 @@
       <input class="input" text="input" id="rate" v-model="rate" placeholder="Select rate">
       <label for="genre">Genre:</label>
       <div class="select is-primary" id="genre">
-            <select @change="onChange($event)">
-              <option>Select genre</option>
-              <option>Action</option>
-              <option>Adventure</option>
-              <option>Animation</option>
-              <option>Comedy</option>
-              <option>Crime</option>
-              <option>Documentary</option>
-              <option>Drama</option>
-              <option>Family</option>
-              <option>Fantasy</option>
-              <option>History</option>
-              <option>Horror</option>
-              <option>Mystery</option>
-              <option>Romance</option>
-              <option>Science Fiction</option>
-            </select>
-          </div>
+      <Select v-model="genre" id="genre"  @change="onChange($event)">
+        <option>Select genre</option>
+      <option v-for="genre in genreList.genres" :key="genre.id" :value="genre.id">{{genre.name}}</option>
+      </Select>
+      </div>
       <button class="button" @click="fetchMovies(),fetchGenres()">Search</button>
     </div>
       <div class="card-list">
@@ -47,6 +34,7 @@
 <script>
 import CardItem from '../components/CardItem.vue';
 
+
 export default {
   name: 'HomePage',
   components: {
@@ -59,41 +47,13 @@ export default {
       rate:"",
       genre:" ",
       genreName:" ",
-      genreList:" "
+      genreList:[]
     }
   },
   methods : {
     onChange(event) {
-              if(event.target.value == "Comedy"){
-                this.genre=35;
-                this.genreName="Comedy";
-              } else if(event.target.value == "Action"){
-                this.genre=28;
-              } else if(event.target.value == "Adventure"){
-                this.genre=12;
-              } else if(event.target.value == "Animation"){
-                this.genre=16;
-              } else if(event.target.value == "Crime"){
-                this.genre=80;
-              } else if(event.target.value == "Documentary"){
-                this.genre=99;
-              } else if(event.target.value == "Drama"){
-                this.genre=18;
-              } else if(event.target.value == "Family"){
-                this.genre=10751;
-              } else if(event.target.value == "Fantasy"){
-                this.genre=14;
-              } else if(event.target.value == "History"){
-                this.genre=36;
-              } else if(event.target.value == "Horror"){
-                this.genre=27;
-              } else if(event.target.value == "Mystery"){
-                this.genre=9648;
-              } else if(event.target.value == "Romance"){
-                this.genre=10749;
-              } else if(event.target.value == "Science Fiction"){
-                this.genre=878;
-              } 
+              var optionValue = event.target.value;
+              this.genre=optionValue;
           },
     fetchMovies() {
       fetch('https://api.themoviedb.org/3/discover/movie?api_key=54106cb9e32f32a2f6c166158a3062d4&with_genres='+this.genre+'&vote_average.gte='+this.rate+'&vote_average.lte='+this.rate+'&primary_release_year='+this.input)
@@ -109,6 +69,10 @@ export default {
         this.genreList = data;
       })
     }
+  },
+  mounted(){
+    this.fetchGenres();
+    this.onChange();
   }
 }
 </script>

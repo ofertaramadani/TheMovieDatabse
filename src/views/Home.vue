@@ -42,6 +42,7 @@
   
   <script>
   import CardItem from '../components/CardItem.vue';
+
   
   export default {
     name: 'HomePage',

@@ -165,6 +165,9 @@ export default {
         grid-template-columns: 1fr 1fr 1fr;
       }
      
-      
+      .input {
+    width:120px;
+    margin-right:10px
+  }
     }
 </style>

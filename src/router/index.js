@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import HomePage from '../views/Search.vue'
-import SingleNews from '../views/SingleMovie.vue'
+import SingleMovie from '../views/SingleMovie.vue'
 
 Vue.use(VueRouter)
 
@@ -20,7 +20,7 @@ const routes = [
   {
     path: '/single-movie/:id',
     name: 'single-movie',
-    component: SingleNews
+    component: SingleMovie
   }
 ]
 

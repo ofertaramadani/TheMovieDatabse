@@ -113,7 +113,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   
   .filters {
     display: flex;
@@ -159,6 +159,12 @@ export default {
     margin-left:0px;
     margin-top:10px;
   }
-
   }
+  @media (min-width:768px) and (max-width:1024px){
+      .card-list {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+     
+      
+    }
 </style>

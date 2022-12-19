@@ -2,7 +2,30 @@
     <div id="app">
       <div class="container">
         <div class="card-list">
-          <CardItem v-for="news in movieList.results" :key="news.id"
+            <!--Faqja me 20 filma-->
+          <CardItem v-for="news in movieList[0].results" :key="news.id"
+            :cardID="news.id"
+            :cardTitle="news.title"
+            :cardImage="'https://image.tmdb.org/t/p/original'+news.poster_path"
+            :cardContent="news.overview" 
+            :cardDate="news.release_date"
+            :cardRate="news.vote_average"
+            :cardGenre="genreName"
+          >
+          </CardItem>
+          <!--Faqja me 20 filma-->
+          <CardItem v-for="news in movieList[1].results" :key="news.id"
+            :cardID="news.id"
+            :cardTitle="news.title"
+            :cardImage="'https://image.tmdb.org/t/p/original'+news.poster_path"
+            :cardContent="news.overview" 
+            :cardDate="news.release_date"
+            :cardRate="news.vote_average"
+            :cardGenre="genreName"
+          >
+          </CardItem>
+          <!--Faqja me 10 filma..... totali 50-->
+          <CardItem v-for="news in movieList[2]" :key="news.id"
             :cardID="news.id"
             :cardTitle="news.title"
             :cardImage="'https://image.tmdb.org/t/p/original'+news.poster_path"
@@ -29,39 +52,52 @@
       return {
         firstpage: {},
         secondpage: {},
+        thirdpage: {},
         movieList: {}
       }
     },
     methods : {
-      fetchMovies() {
+      fetchMovies_first20() {
         fetch('https://api.themoviedb.org/3/movie/popular?api_key=54106cb9e32f32a2f6c166158a3062d4&language=en-US&page=1')
         .then(response => response.json())
         .then(data => {
           this.firstpage = data;
         })
       },
-      fetchMovies1() {
+      fetchMovies_second20() {
         fetch('https://api.themoviedb.org/3/movie/popular?api_key=54106cb9e32f32a2f6c166158a3062d4&language=en-US&page=2')
         .then(response => response.json())
         .then(data => {
           this.secondpage= data;
+          console.log(this.firstpage);
+          this.movieList=Object.assign({},[this.firstpage,this.secondpage]);
+          console.log(this.movieList);
+
         })
       },
-      concatmovies() {
-        this.movieList = {...this.fetchMovies,...this.fetchMovies1};
-        console.log(this.movieList);
-      }
-       
+      fetchMovies_third10() {
+        fetch('https://api.themoviedb.org/3/movie/popular?api_key=54106cb9e32f32a2f6c166158a3062d4&language=en-US&page=3')
+        .then(response => response.json())
+        .then(data => {
+            this.thirdpage = Object.keys(data.results).slice(0, 10).reduce((result, key) => {
+                    result[key] = data.results[key];
+
+                    return result;
+                }, {});
+          console.log(this.thirdpage);
+          this.movieList=Object.assign({},[this.firstpage,this.secondpage,this.thirdpage]);
+        })
+      }  
     },
     mounted() {
-      this.fetchMovies();
-      this.fetchMovies1();
-      this.concatmovies();
+      this.fetchMovies_first20();
+      this.fetchMovies_second20();
+      this.fetchMovies_third10();
     }
   }
   </script>
   
-  <style>
+  <style scoped>
     
     .filters {
       display: flex;
@@ -107,7 +143,14 @@
       margin-left:0px;
       margin-top:10px;
     }
-  
+    }
+    @media (min-width:768px) and (max-width:1024px){
+      .card-list {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      .filters {
+        flex-direction: column;
+      }
     }
   </style>
   

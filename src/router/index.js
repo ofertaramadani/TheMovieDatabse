@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomePage from '../views/HomePage.vue'
+import Home from '../views/Home.vue'
+import HomePage from '../views/Search.vue'
 import SingleNews from '../views/SingleMovie.vue'
 
 Vue.use(VueRouter)
@@ -9,7 +10,12 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomePage
+    component: Home
+  },
+  {
+    path:'/search',
+    name:'homepage',
+    component:HomePage
   },
   {
     path: '/single-movie/:id',

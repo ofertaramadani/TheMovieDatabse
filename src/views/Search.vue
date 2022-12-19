@@ -26,7 +26,7 @@
               <option>Science Fiction</option>
             </select>
           </div>
-      <button class="button" @click="fetchNews(),fetchGenres()">Search</button>
+      <button class="button" @click="fetchMovies(),fetchGenres()">Search</button>
     </div>
       <div class="card-list">
         <CardItem v-for="news in movieList.results" :key="news.id"
@@ -95,7 +95,7 @@ export default {
                 this.genre=878;
               } 
           },
-    fetchNews() {
+    fetchMovies() {
       fetch('https://api.themoviedb.org/3/discover/movie?api_key=54106cb9e32f32a2f6c166158a3062d4&with_genres='+this.genre+'&vote_average.gte='+this.rate+'&vote_average.lte='+this.rate+'&primary_release_year='+this.input)
       .then(response => response.json())
       .then(data => {
@@ -109,9 +109,6 @@ export default {
         this.genreList = data;
       })
     }
-  },
-  mounted() {
-    this.fetchNews();
   }
 }
 </script>

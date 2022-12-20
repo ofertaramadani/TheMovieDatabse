@@ -95,7 +95,7 @@ export default {
   }
   .card-list {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     gap: 30px;
     padding-top: 60px;
     padding-bottom: 60px;
@@ -119,7 +119,7 @@ export default {
       flex-direction: column;
     }
     .card-list {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 1fr;
     }
     label{
     margin-right:0px;
@@ -135,7 +135,7 @@ export default {
   }
   @media (min-width:768px) and (max-width:1024px){
       .card-list {
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
       }
      
       .input {

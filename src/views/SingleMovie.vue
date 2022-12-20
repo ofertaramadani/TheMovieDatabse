@@ -90,14 +90,15 @@ export default {
 <style scoped>
 .similarMovies {
   text-align: center;
-  margin-top: 3%;
+  margin-top: 5%;
   color: white;
 }
 .card-list {
-  margin-top:2%;
   display:grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap:1%;
+  gap: 30px;
+  padding-top: 30px;
+  padding-bottom: 60px;
 }
 .genres {
   display: flex;
@@ -131,8 +132,9 @@ export default {
   }
   
   .card-list {
-    grid-template-columns: 1fr;
-    gap: 0.5%;
+    grid-auto-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    
   }
   .card-image,.card-content {
   width: 100%;

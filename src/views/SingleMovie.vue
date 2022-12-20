@@ -17,13 +17,13 @@
         <p v-for="genre in movieGenres" :key="genre.id">{{ genre.name }}</p>
       </div>
       </div>
-     
     </div>
     <div class="content">
       Plot : {{movieContent}}
     </div>
   </div>
 </div>
+<div class="similarMovies title">Similar Movies</div>
 <div class="card-list">
 <CardItem v-for="movies in similarMovies.results" :key="movies.id" @click.native="reloadPage()"
     :cardID="movies.id"
@@ -88,8 +88,13 @@ export default {
 </script>
 
 <style scoped>
+.similarMovies {
+  text-align: center;
+  margin-top: 3%;
+  color: white;
+}
 .card-list {
-  margin-top:10%;
+  margin-top:2%;
   display:grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap:1%;
@@ -103,13 +108,15 @@ export default {
   margin-bottom:6%;
 }
 
+.card-image,.card-content {
+  width: 50%;
+}
 .card {
   display: flex;
   width: 70%;
   margin:auto;
   align-items: center;
 }
-
 .card-image {
   padding-left:7px;
   padding-top:7px;

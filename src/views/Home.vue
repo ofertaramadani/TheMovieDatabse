@@ -88,7 +88,7 @@
         flex-direction: column;
       }
       .card-list {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
       }
       label{
       margin-right:0px;
@@ -103,7 +103,7 @@
     }
     @media (min-width:768px) and (max-width:1024px){
       .card-list {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
       }
       .filters {
         flex-direction: column;

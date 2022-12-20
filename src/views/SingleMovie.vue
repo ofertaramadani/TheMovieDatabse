@@ -133,7 +133,7 @@ export default {
   
   .card-list {
     grid-auto-rows: 1fr;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     
   }
   .card-image,.card-content {
@@ -144,6 +144,9 @@ export default {
 @media (min-width:768px) and (max-width:1024px){
   .card {
     width: 100%;
+  }
+  .card-list {
+    grid-template-columns: 1fr 1fr 1fr;
   }
   
 }

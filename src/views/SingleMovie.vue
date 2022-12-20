@@ -24,12 +24,25 @@
     </div>
   </div>
 </div>
+<div class="card-list">
+<CardItem v-for="movies in similarMovies.results" :key="movies.id" @click.native="reloadPage()"
+    :cardID="movies.id"
+    :cardTitle="movies.title"
+    :cardImage="'https://image.tmdb.org/t/p/original'+movies.poster_path"
+    >
+  </CardItem>
+</div>
 </div>
 </template>
 
 <script>
+import CardItem from '../components/CardItem.vue';
 export default {
   name: 'SingleNews',
+  components : {
+    CardItem
+
+  },
   data() {
     return {
       moviePoster:" ",
@@ -39,9 +52,13 @@ export default {
       movieRate : " ",
       movieLan : " ",
       movieGenres: [],
+      similarMovies:[]
     }
   },
   methods: {
+    reloadPage() {
+      window.location.reload();
+    },
     fetchSingleMovie(movieID) {
       fetch('https://api.themoviedb.org/3/movie/'+movieID+'?api_key=54106cb9e32f32a2f6c166158a3062d4&language=en-US')
       .then(response => response.json())
@@ -54,15 +71,29 @@ export default {
         this.movieLan=data.original_language;
         this.movieGenres=data.genres;
       })
+    },
+    fetchSimilarMovies(movieID){
+      fetch('https://api.themoviedb.org/3/movie/'+movieID+'/similar?api_key=54106cb9e32f32a2f6c166158a3062d4&language=en-US&page=1')
+      .then(response => response.json())
+      .then(data => {
+       this.similarMovies=data;
+      })
     }
   },
   mounted() {
     this.fetchSingleMovie(this.$route.params.id);
+    this.fetchSimilarMovies(this.$route.params.id);
   }
 }
 </script>
 
 <style scoped>
+.card-list {
+  margin-top:10%;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap:1%;
+}
 .genres {
   display: flex;
   gap: 1%;
@@ -92,6 +123,9 @@ export default {
     padding-right:7px;
   }
   
+  .card-list {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (min-width:768px) and (max-width:1024px){

@@ -27,9 +27,6 @@
             :cardID="news.id"
             :cardTitle="news.title"
             :cardImage="'https://image.tmdb.org/t/p/original'+news.poster_path"
-            :cardContent="news.overview" 
-            :cardDate="news.release_date"
-            :cardRate="news.vote_average"
           >
           </CardItem> 
         </div>
@@ -113,7 +110,7 @@
     }
     .card-list {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr ;
       gap: 30px;
       padding-top: 60px;
       padding-bottom: 60px;

@@ -5,7 +5,7 @@
       <div class="nav-bar__logo"><router-link to="/">
     <img src="./assets/imdb2.svg" width="75" height="25" >
     </router-link></div>
-      <router-link to="/" class="nav-bar__link">Popular</router-link>
+    <router-link to="/" class="nav-bar__link">Popular</router-link>
     <router-link to="/search" class="nav-bar__link">Search</router-link>
      </div>
  
@@ -16,6 +16,7 @@
 </template>
 
 <style>
+
 .nav-bar__links {
   display: flex;
   align-items: center;

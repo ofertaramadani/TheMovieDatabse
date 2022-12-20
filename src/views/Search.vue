@@ -94,7 +94,7 @@ export default {
   }
   .card-list {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 30px;
     padding-top: 60px;
     padding-bottom: 60px;

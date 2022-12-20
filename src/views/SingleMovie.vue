@@ -132,17 +132,18 @@ export default {
   
   .card-list {
     grid-template-columns: 1fr;
+    gap: 0.5%;
   }
+  .card-image,.card-content {
+  width: 100%;
+}
 }
 
 @media (min-width:768px) and (max-width:1024px){
   .card {
-    width: 90%;
-    flex-direction:column;
+    width: 100%;
   }
-  .card-image {
-    padding-right:7px;
-  }
+  
 }
 
 </style>

@@ -69,6 +69,7 @@ export default {
     }
   },
   mounted(){
+    this.fetchMovies();
     this.fetchGenres();
     this.onChange();
   }

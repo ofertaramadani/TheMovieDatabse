@@ -38,8 +38,7 @@
     },
     data() {
       return {
-        movieList: [],
-        fullList:[]
+        movieList: []
       }
     },
     methods : {

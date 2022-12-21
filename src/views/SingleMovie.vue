@@ -3,7 +3,7 @@
   <div class="space"></div>
   <div class="card">
   <div class="card-image">
-      <img :src="'https://image.tmdb.org/t/p/original'+ moviePoster" alt="Placeholder image">
+      <img :src="'https://image.tmdb.org/t/p/original'+ moviePoster" :alt="cardTitle">
   </div>
   <div class="card-content">
     <div class="media">

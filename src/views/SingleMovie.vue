@@ -25,7 +25,7 @@
 </div>
 <div class="similarMovies title">Similar Movies</div>
 <div class="card-list">
-<CardItem v-for="movies in similarMovies.results" :key="movies.id" @click.native="reloadPage()"
+<CardItem v-for="movies in similarMovies.results" :key="movies.id" 
     :cardID="movies.id"
     :cardTitle="movies.title"
     :cardImage="'https://image.tmdb.org/t/p/original'+movies.poster_path"
@@ -56,9 +56,9 @@ export default {
     }
   },
   methods: {
-    reloadPage() {
-      window.location.reload();
-    },
+    // reloadPage() {
+    //   window.location.reload();
+    // },
     fetchSingleMovie(movieID) {
       fetch('https://api.themoviedb.org/3/movie/'+movieID+'?api_key=54106cb9e32f32a2f6c166158a3062d4&language=en-US')
       .then(response => response.json())

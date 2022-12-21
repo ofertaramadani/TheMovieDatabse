@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import HomePage from '../views/Search.vue'
+import Search from '../views/Search.vue'
 import SingleMovie from '../views/SingleMovie.vue'
 
 Vue.use(VueRouter)
@@ -14,8 +14,8 @@ const routes = [
   },
   {
     path:'/search',
-    name:'homepage',
-    component:HomePage
+    name:'search',
+    component:Search
   },
   {
     path: '/single-movie/:id',
